@@ -132,7 +132,7 @@ class Car {
 }
 
 /**
- * [Exercise 7] Asynchronousely resolves whether a number is even
+ * [Exercise 7] Asynchronously resolves whether a number is even
  * @param {number} number - the number to test for evenness
  * @returns {promise} - resolves true if number even, false otherwise
  *

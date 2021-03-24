@@ -43,3 +43,4 @@ There are two possible ways to submit your project. Your instructor should have 
 - In your solution, it is essential that you follow best practices and produce clean and professional results.
 - Schedule time to review, refine, and assess your work.
 - Perform basic professional polishing including spell-checking and grammar-checking on your work.
+jonathan

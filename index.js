@@ -8,6 +8,11 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  const newObj = { ...obj };
+  Object.keys(newObj).forEach((key) => {
+    newObj[key] = newObj[key].trim();
+  });
+  return newObj;
 }
 
 /**
@@ -20,6 +25,10 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  Object.keys(obj).forEach((key) => {
+    obj[key] = obj[key].trim();
+  });
+  return obj;
 }
 
 /**
@@ -32,6 +41,7 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+  return Math.max(...integers);
 }
 
 class Counter {
@@ -41,6 +51,7 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.count = initialNumber + 1;
   }
 
   /**
@@ -57,6 +68,7 @@ class Counter {
    */
   countDown() {
     // ✨ implement
+    return this.count > 0 ? (this.count -= 1) : this.count;
   }
 }
 
@@ -66,6 +78,7 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
+    this.season = "spring";
   }
 
   /**
@@ -82,6 +95,12 @@ class Seasons {
    */
   next() {
     // ✨ implement
+    {
+      const seasons = ["spring", "summer", "fall", "winter", "spring"];
+      const index = seasons.findIndex((season) => season === this.season);
+      this.season = seasons[index + 1];
+      return this.season;
+    }
   }
 }
 
@@ -113,6 +132,10 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    const distanceDriven = Math.min(distance, this.mpg * this.fuel);
+    this.odometer += distanceDriven;
+    this.fuel = Math.max(this.fuel - distanceDriven / this.mpg, 0);
+    return this.odometer;
   }
 
   /**
@@ -128,6 +151,7 @@ class Car {
    */
   refuel(gallons) {
     // ✨ implement
+    this.fuel = Math.min(this.fuel + gallons, this.tank);
   }
 }
 
@@ -152,6 +176,17 @@ class Car {
  */
 function isEvenNumberAsync(number) {
   // ✨ implement
+  if (typeof number != 'number') {
+    return "number must be a number";
+  } else if (Number.isNaN(number)) {
+    return "number must be a number";
+  }
+
+  if (number % 2 === 0) {
+    return Promise.resolve(true);
+  } else {
+    return Promise.resolve(false);
+  }
 }
 
 module.exports = {

@@ -25,7 +25,7 @@ function trimPropertiesMutation(obj) {
 /**
  * [Exercise 3] findLargestInteger finds the largest integer in an array of integers
  * @param {number[]} integers - an array of integers
- * @returns {number} - the largest integer
+ * @returns { number } - the largest integer
  *
  * EXAMPLE
  * findLargestInteger([2, 1, 7, 3, 14, 7]) // returns 14

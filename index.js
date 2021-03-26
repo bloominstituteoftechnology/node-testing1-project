@@ -8,8 +8,14 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  Object.keys(obj).map((k) => (obj[k] = obj[k].trim()));
+  return obj;
 }
-
+function copyProperties(obj) {
+  return {
+    ...obj,
+  };
+}
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
  * @param {object} obj - an object with properties that are strings
@@ -32,6 +38,8 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+const highest = Math.max(integers)
+return highest
 }
 
 class Counter {
@@ -93,8 +101,8 @@ class Car {
    * @param {number} mpg - miles the car can drive per gallon of gas
    */
   constructor(name, tankSize, mpg) {
-    this.odometer = 0 // car initilizes with zero miles
-    this.tank = tankSize // car initiazes full of gas
+    this.odometer = 0; // car initilizes with zero miles
+    this.tank = tankSize; // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
   }
 
@@ -156,10 +164,11 @@ function isEvenNumberAsync(number) {
 
 module.exports = {
   trimProperties,
+  copyProperties,
   trimPropertiesMutation,
   findLargestInteger,
   isEvenNumberAsync,
   Counter,
   Seasons,
   Car,
-}
+};

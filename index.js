@@ -133,6 +133,8 @@ class Car {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
+    this.mpg = mpg;
+    this.maxTank = tankSize
   }
 
   /**
@@ -150,6 +152,20 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    const availableDistance = this.tank * this.mpg
+    if (distance < availableDistance) {
+      const newOdometer = this.odometer += distance
+      const gasUsed = distance / this.mpg
+      this.tank -= gasUsed
+      return newOdometer
+    } else {
+      //const possibleDistance = (distance - availableDistance)
+      const gasUsed = availableDistance / this.mpg
+      this.tank -= gasUsed
+      const newOdometer = this.odometer += availableDistance
+      return newOdometer
+    }
+    
   }
 
   /**
@@ -165,6 +181,14 @@ class Car {
    */
   refuel(gallons) {
     // ✨ implement
+    
+    if (this.maxTank >= this.tank+gallons) {
+      this.tank += gallons
+      return this.tank * this.mpg
+    } else {
+      this.tank = this.maxTank
+      return this.tank * this.mpg // possible mileage
+    }
   }
 }
 

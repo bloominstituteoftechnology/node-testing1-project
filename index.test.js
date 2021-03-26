@@ -22,11 +22,23 @@ describe('[Exercise 1] trimProperties', () => {
 })
 
 describe('[Exercise 2] trimPropertiesMutation', () => {
+  let input;
+  let expected;
+  let actual;
+
+  beforeEach(() => {
+    input = { foo: "  foo ", bar: "bar ", baz: " baz" };
+    expected = { foo: "foo", bar: "bar", baz: "baz" };
+    actual = utils.trimPropertiesMutation(input);
+  });
+
   it('[3] returns an object with the properties trimmed', () => {
     // ✨ test away
+    expect(actual).toEqual(expected)
   })
   it('[4] the object returned is the exact same one we passed in', () => {
     // ✨ test away
+    expect(actual).toBe(input)
   })
 })
 

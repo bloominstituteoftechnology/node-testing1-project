@@ -213,6 +213,13 @@ class Car {
  */
 function isEvenNumberAsync(number) {
   // ✨ implement
+  if(typeof number != 'number') {
+    return ('number must be a number')
+  } else if (isNaN(number)) {
+    return ('number must be a number')
+  } else {
+    return Promise.resolve(number % 2 === 0 ? true : false);
+  }
 }
 
 module.exports = {

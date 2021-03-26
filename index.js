@@ -7,6 +7,12 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
+  let trimmed = {}
+  trimmed.foo = obj.foo.trim()
+  trimmed.bar = obj.bar.trim()
+  trimmed.baz = obj.baz.trim()
+
+  return trimmed
   // ✨ implement
 }
 
@@ -19,6 +25,11 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
+  obj.foo = obj.foo.trim()
+  obj.bar = obj.bar.trim()
+  obj.baz = obj.baz.trim()
+
+  return obj
   // ✨ implement
 }
 
@@ -31,6 +42,17 @@ function trimPropertiesMutation(obj) {
  * findLargestInteger([2, 1, 7, 3, 14, 7]) // returns 14
  */
 function findLargestInteger(integers) {
+  let largest;
+  for (let i = 0; i < integers.length; i++) {
+    if (largest){
+     if (integers[i] > largest) {
+       largest = integers[i]
+    } else {
+      largest = integers[i]
+    }
+  }
+}
+  return largest
   // ✨ implement
 }
 
@@ -40,6 +62,7 @@ class Counter {
    * @param {number} initialNumber - the initial state of the count
    */
   constructor(initialNumber) {
+    this.count = initialNumber + 1
     // ✨ initialize whatever properties are needed
   }
 
@@ -56,6 +79,7 @@ class Counter {
    * counter.countDown() // returns 0
    */
   countDown() {
+    return this.count > 0 ? (this.count -= 1) : this.count
     // ✨ implement
   }
 }
@@ -65,6 +89,7 @@ class Seasons {
    * [Exercise 5A] Seasons creates a seasons object
    */
   constructor() {
+    this.season = 'spring'
     // ✨ initialize whatever properties are needed
   }
 
@@ -81,6 +106,10 @@ class Seasons {
    * seasons.next() // returns "summer"
    */
   next() {
+    const seasons = ['spring', 'summer', 'fall', 'winter', 'spring']
+    const index = seasons.findIndex((season) => season === this.season)
+    this.season = seasons[index + 1]
+    return this.season
     // ✨ implement
   }
 }
@@ -112,6 +141,10 @@ class Car {
    * focus.drive(200) // returns 600 (ran out of gas after 100 miles)
    */
   drive(distance) {
+    const distanceDriven = Math.min(distance, this.mpg * this.fuel)
+    this.odometer += distanceDriven
+    this.fuel = Math.max(this.fuel - distanceDriven / this.mpg, 0)
+    return this.odometer
     // ✨ implement
   }
 
@@ -127,6 +160,7 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
+    this.fuel = Math.min(this.fuel + gallons, this.tank)
     // ✨ implement
   }
 }
@@ -151,6 +185,18 @@ class Car {
  * })
  */
 function isEvenNumberAsync(number) {
+  if (typeof number != 'number') {
+    return "number must be a number"
+  } else if (Number.isNaN(number)) {
+    return "number must be a number"
+  }
+  
+  if (number % 2 === 0) {
+    return Promise.resolve(true)
+  } else {
+    return Promise.resolve(false)
+  }
+
   // ✨ implement
 }
 

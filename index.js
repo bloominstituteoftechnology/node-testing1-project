@@ -100,6 +100,11 @@ class Seasons {
    */
   next() {
     // ✨ implement
+    const seasons = ['spring', 'summer', 'fall', 'winter', 'spring'];
+		const index = seasons.findIndex((season) => season === this.season);
+		this.season = seasons[index + 1];
+		return this.season;
+
   }
 }
 
@@ -114,6 +119,8 @@ class Car {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
+    this.fuel = tankSize;
+		this.mpg = mpg;
   }
 
   /**

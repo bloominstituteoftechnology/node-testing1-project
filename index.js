@@ -83,6 +83,7 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
+    this.season = "spring";
   }
 
   /**

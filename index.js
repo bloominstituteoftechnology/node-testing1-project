@@ -8,7 +8,7 @@
  */
 function trimProperties(obj) {
 	// ✨ implement
-	Object.keys(obj).reduce((acc, curr) => {
+	return Object.keys(obj).reduce((acc, curr) => {
 		acc[curr] = obj[curr].trim();
 		return acc;
 	}, {});
@@ -24,6 +24,10 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
 	// ✨ implement
+	Object.keys(obj).forEach((key) => {
+		obj[key] = obj[key].trim();
+	});
+	return obj;
 }
 
 /**

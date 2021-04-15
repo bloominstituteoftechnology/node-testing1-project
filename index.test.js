@@ -23,7 +23,7 @@ describe('[Exercise 2] trimPropertiesMutation', () => {
 })
 
 describe('[Exercise 3] findLargestInteger', () => {
-  it('[5] returns the largest number in an array of numbers', () => {
+  it('[5] returns the largest number in an array of objects { integer: 2 }', () => {
     // ✨ test away
   })
 })

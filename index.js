@@ -40,6 +40,7 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
 	// ✨ implement
+	return Math.max.apply(null, integers);
 }
 
 class Counter {
@@ -49,6 +50,7 @@ class Counter {
 	 */
 	constructor(initialNumber) {
 		// ✨ initialize whatever properties are needed
+		this.counter = initialNumber;
 	}
 
 	/**
@@ -65,6 +67,11 @@ class Counter {
 	 */
 	countDown() {
 		// ✨ implement
+		if (this.counter <= 0) {
+			return this.counter;
+		} else {
+			return this.counter--;
+		}
 	}
 }
 
@@ -74,6 +81,13 @@ class Seasons {
 	 */
 	constructor() {
 		// ✨ initialize whatever properties are needed
+		this.season = {
+			summer: 'summer',
+			fall: 'fall',
+			winter: 'winter',
+			spring: 'spring',
+		};
+		this.currentSeason = this.seasons.spring;
 	}
 
 	/**
@@ -90,6 +104,17 @@ class Seasons {
 	 */
 	next() {
 		// ✨ implement
+		const keys = Object.keys(this.seasons);
+
+		for (let i = 0; i < keys.length; i++) {
+			if (keys[i] === 'spring') {
+				this.currentSeason = 'summer';
+				return this.currentSeason;
+			} else if (keys[i] === this.currentSeason) {
+				this.currentSeason = keys[i + 1];
+				return this.currentSeason;
+			}
+		}
 	}
 }
 
@@ -104,6 +129,7 @@ class Car {
 		this.odometer = 0; // car initilizes with zero miles
 		this.tank = tankSize; // car initiazes full of gas
 		// ✨ initialize whatever other properties are needed
+		this.mpg = mpg;
 	}
 
 	/**
@@ -121,6 +147,14 @@ class Car {
 	 */
 	drive(distance) {
 		// ✨ implement
+		let fuelBurned = distance / this.mpg;
+		let newMiles = this.odometer + distance;
+		this.tank -= fuelBurned;
+		if (this.tank <= 0) {
+			this.tank = 0;
+			return newMiles;
+		}
+		return newMiles;
 	}
 
 	/**
@@ -136,6 +170,13 @@ class Car {
 	 */
 	refuel(gallons) {
 		// ✨ implement
+		let distance = this.mpg * gallons;
+		this.tank += gallons;
+		if (this.tank >= 20) {
+			this.tank = 20;
+			return distance;
+		}
+		return distance;
 	}
 }
 
@@ -160,6 +201,13 @@ class Car {
  */
 function isEvenNumberAsync(number) {
 	// ✨ implement
+	if (typeof number !== 'number') {
+		throw new Error('number must be a number');
+	} else if (number % 2 === 0) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 module.exports = {

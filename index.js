@@ -7,7 +7,11 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
-  // ✨ implement
+    if (!Array.isArray(obj) && typeof obj != 'object') return obj;
+    return Object.keys(obj).reduce(function(acc, key) {
+      acc[key.trim()] = typeof obj[key] == 'string'? obj[key].trim() : trimObj(obj[key]);
+      return acc;
+    }, Array.isArray(obj)? []:{});
 }
 
 /**
@@ -19,7 +23,13 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
-  // ✨ implement
+  Object.entries(obj).map(object => {
+    if (!Array.isArray(object) && typeof object != 'object') return object;
+    return Object.keys(object).reduce(function(acc, key) {
+      acc[key.trim()] = typeof object[key] == 'string'? object[key].trim() : trimObj(object[key]);
+      return acc;
+    }, Array.isArray(object)? []:{});
+  })
 }
 
 /**
@@ -31,7 +41,10 @@ function trimPropertiesMutation(obj) {
  * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
  */
 function findLargestInteger(integers) {
-  // ✨ implement
+  integers.reduce(
+    (max, number) => (number.integer > max ? number.integer : max),
+    integers[0].integer
+  );
 }
 
 class Counter {

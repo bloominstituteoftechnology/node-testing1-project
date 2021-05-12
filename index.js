@@ -8,6 +8,9 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  const objStrings = {...obj}
+  Object.keys(objStrings).map(foo => objStrings[foo] = objStrings[foo].trim())
+  return objStrings
 }
 
 /**
@@ -20,7 +23,12 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  Object.keys(obj).forEach(bar => obj[bar] = obj[bar].trim())
+  
+  return obj
 }
+
+
 
 /**
  * [Exercise 3] findLargestInteger finds the largest integer in an array of objects { integer: 1 }
@@ -32,7 +40,15 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+  const integerArray = [...integers]
+
+  var max = Math.max(...integerArray)
+
+  return max
+
 }
+
+console.log('largest integer:', findLargestInteger([1000, 3, 80, 200]))
 
 class Counter {
   /**
@@ -41,6 +57,7 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.count = initialNumber + 1
   }
 
   /**
@@ -57,8 +74,18 @@ class Counter {
    */
   countDown() {
     // ✨ implement
+    if (this.count > 0) {
+      this.count -= 1
+    } else {
+      this.count 
+    }
+    return this.count
+    
   }
+  
 }
+
+
 
 class Seasons {
   /**
@@ -66,6 +93,7 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
+    this.season = "spring"
   }
 
   /**
@@ -82,8 +110,16 @@ class Seasons {
    */
   next() {
     // ✨ implement
+    const seasons = ["spring", "summer", "fall", "winter", "spring"]
+    const nextSeason = seasons.findIndex(foo => foo === this.season)
+    this.season = seasons[nextSeason + 1]
+    
+    return this.season
+    
   }
 }
+
+
 
 class Car {
   /**
@@ -96,6 +132,8 @@ class Car {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
+    this.mpg = mpg
+    
   }
 
   /**
@@ -113,6 +151,16 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    let availableMiles = this.tank * this.mpg
+     if (distance < availableMiles) {
+       const increasedOdometer = availableMiles += this.odometer
+       const fuelConsumed = distance / this.mpg
+       this.tank -= Math.ceil(fuelConsumed)
+       this.odometer = Math.ceil(distance -+ fuelConsumed)
+       return increasedOdometer
+     } else {
+       throw(Error)
+     }
   }
 
   /**
@@ -128,6 +176,7 @@ class Car {
    */
   refuel(gallons) {
     // ✨ implement
+    
   }
 }
 
@@ -152,6 +201,13 @@ class Car {
  */
 function isEvenNumberAsync(number) {
   // ✨ implement
+  if(typeof number !== "number" || Number.isNaN(number))
+    throw new Error("number must be a number")
+  if (number%2 === 0)
+    return true
+  else (number%2 !== 0)
+    return false
+  
 }
 
 module.exports = {

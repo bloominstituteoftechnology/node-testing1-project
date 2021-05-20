@@ -65,12 +65,16 @@ class Counter {
    * counter.countDown() // returns 0
    * counter.countDown() // returns 0
    */
-  countDown() {
-    if (this.counter > 0) {
-      return this.counter -= 1
-  } else {
-    return 0
-  }
+  countDown(initialNumber) {
+    const initialInvocation = true
+    if (initialInvocation) {
+      initialInvocation = false
+      return initialNumber
+    } else if (initialNumber > 0) {
+      return initialNumber -= 1
+    } else {
+      return 0
+    }
   }
 }
 

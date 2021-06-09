@@ -8,6 +8,7 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  //
 }
 
 /**

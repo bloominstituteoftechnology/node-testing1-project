@@ -1,5 +1,14 @@
 const utils = require('./index')
-
+const {
+  trimProperties,
+  trimPropertiesMutation,
+  findLargestInteger,
+  isEvenNumberAsync,
+  Counter,
+  Seasons,
+  Car,
+} = require('./index');
+//arrange
 describe('[Exercise 1] trimProperties', () => {
   test('[1] returns an object with the properties trimmed', () => {
     // EXAMPLE
@@ -8,16 +17,34 @@ describe('[Exercise 1] trimProperties', () => {
     const actual = utils.trimProperties(input)
     expect(actual).toEqual(expected)
   })
-  test.todo('[2] returns a copy, leaving the original object intact')
+  //act
+  test('[2] returns a copy, leaving the original object intact', () => {
+  //assert
+    const input = { name:  '  jane  ', age: '  20  '}
+    let expected = { name: 'jane', age: '20' }
+     expect(trimProperties(input)).toEqual(expected)
+     expect(trimProperties(input)).not.toBe(expected)
+  })
 })
 
 describe('[Exercise 2] trimPropertiesMutation', () => {
-  test.todo('[3] returns an object with the properties trimmed')
-  test.todo('[4] the object returned is the exact same one we passed in')
+  const input = { name:  '  jane  ', age: '  20  '}
+  let expected = { name: 'jane', age: '20' }
+  
+  test('[3] returns an object with the properties trimmed', () => {
+    expect(trimPropertiesMutation(input)).toEqual(expected)
+  })
+  
+  test('[4] the object returned is the exact same one we passed in', () => {
+    expect(trimPropertiesMutation(input)).toBe(input) 
+  })
+
 })
 
 describe('[Exercise 3] findLargestInteger', () => {
-  test.todo('[5] returns the largest number in an array of objects { integer: 2 }')
+  test('[5] returns the largest number in an array of objects { integer: 2 }', () => {
+    expect(findLargestInteger([{integer: 2}, {integer: 1}, {integer: 3}])).toEqual(3)
+  })
 })
 
 describe('[Exercise 4] Counter', () => {
@@ -25,22 +52,50 @@ describe('[Exercise 4] Counter', () => {
   beforeEach(() => {
     counter = new utils.Counter(3) // each test must start with a fresh couter
   })
-  test.todo('[6] the FIRST CALL of counter.countDown returns the initial count')
-  test.todo('[7] the SECOND CALL of counter.countDown returns the initial count minus one')
-  test.todo('[8] the count eventually reaches zero but does not go below zero')
+  test('[6] the FIRST CALL of counter.countDown returns the initial count', () => {
+    expect(counter.countDown()).toEqual(3)
+  })
+
+  test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {
+    expect(counter.countDown()).not.toEqual(2)
+  })
+
+  test('[8] the count eventually reaches zero but does not go below zero', () => {
+    expect(counter.countDown()).toBeGreaterThanOrEqual(0)
+  })
+
 })
 
 describe('[Exercise 5] Seasons', () => {
   let seasons
-  beforeEach(() => {
-    seasons = new utils.Seasons() // each test must start with fresh seasons
+  // beforeEach(() => {
+    seasons = new utils.Seasons("summer") // each test must start with fresh seasons
+  // })
+  test('[9] the FIRST call of seasons.next returns "summer"', () => {
+    expect(seasons.next()).toEqual('summer')
   })
-  test.todo('[9] the FIRST call of seasons.next returns "summer"')
-  test.todo('[10] the SECOND call of seasons.next returns "fall"')
-  test.todo('[11] the THIRD call of seasons.next returns "winter"')
-  test.todo('[12] the FOURTH call of seasons.next returns "spring"')
-  test.todo('[13] the FIFTH call of seasons.next returns again "summer"')
-  test.todo('[14] the 40th call of seasons.next returns "spring"')
+  test('[10] the SECOND call of seasons.next returns "fall"', () => {
+    expect(seasons.next()).toEqual('fall')
+  })
+  test('[11] the THIRD call of seasons.next returns "winter"', () => {
+    expect(seasons.next()).toEqual('winter')
+  })
+  test('[12] the FOURTH call of seasons.next returns "spring"', () => {
+    expect(seasons.next()).toEqual('spring')
+  })
+  test('[13] the FIFTH call of seasons.next returns again "summer"', () => {
+    expect(seasons.next()).toEqual('summer')
+  })
+  test('[14] the 40th call of seasons.next returns "spring"', () => {
+    // create loop 35 times to keep calling next until it returns spring
+    let testSeason = ""
+    
+    for (let i = 5; i < 40; i++) {
+    testSeason = seasons.next()
+    }
+    expect(testSeason).toEqual('spring')
+
+})
 })
 
 describe('[Exercise 6] Car', () => {

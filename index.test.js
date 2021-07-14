@@ -50,10 +50,15 @@ describe('[Exercise 4] Counter', () => {
   })
 
   test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {
+    counter.countDown()
     expect(counter.countDown()).toEqual(2)
   })
 
   test('[8] the count eventually reaches zero but does not go below zero', () => {
+    for(let i = 0; i < 10; i++) {
+      counter.countDown()
+    }
+
     expect(counter.countDown()).toBeGreaterThanOrEqual(0)
   })
 })

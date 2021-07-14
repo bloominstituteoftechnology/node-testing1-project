@@ -48,9 +48,20 @@ describe('[Exercise 4] Counter', () => {
   beforeEach(() => {
     counter = new utils.Counter(3) // each test must start with a fresh couter
   })
-  // test('[6] the FIRST CALL of counter.countDown returns the initial count', () => {})
-  // test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {})
-  // test('[8] the count eventually reaches zero but does not go below zero', () => {})
+   test('[6] the FIRST CALL of counter.countDown returns the initial count', () => {
+     expect(counter.countDown()).toBe(3)
+   })
+   test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {
+    counter.countDown()
+    expect(counter.countDown()).toBe(2)
+   })
+   test('[8] the count eventually reaches zero but does not go below zero', () => {
+    counter.countDown()
+    counter.countDown()
+    counter.countDown()
+    counter.countDown()
+    expect(counter.countDown()).toBe(0)
+   })
 })
 
 describe('[Exercise 5] Seasons', () => {
@@ -58,12 +69,12 @@ describe('[Exercise 5] Seasons', () => {
   beforeEach(() => {
     seasons = new utils.Seasons() // each test must start with fresh seasons
   })
-  // test('[9] the FIRST call of seasons.next returns "summer"', () => {})
-  // test('[10] the SECOND call of seasons.next returns "fall"', () => {})
-  // test('[11] the THIRD call of seasons.next returns "winter"', () => {})
-  // test('[12] the FOURTH call of seasons.next returns "spring"', () => {})
-  // test('[13] the FIFTH call of seasons.next returns again "summer"', () => {})
-  // test('[14] the 40th call of seasons.next returns "spring"', () => {})
+   test('[9] the FIRST call of seasons.next returns "summer"', () => {})
+   test('[10] the SECOND call of seasons.next returns "fall"', () => {})
+   test('[11] the THIRD call of seasons.next returns "winter"', () => {})
+   test('[12] the FOURTH call of seasons.next returns "spring"', () => {})
+   test('[13] the FIFTH call of seasons.next returns again "summer"', () => {})
+   test('[14] the 40th call of seasons.next returns "spring"', () => {})
 })
 
 describe('[Exercise 6] Car', () => {

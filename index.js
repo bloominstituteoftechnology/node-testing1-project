@@ -108,19 +108,21 @@ class Seasons {
    */
   next() {
     // ✨ implement
-    if (this.currentSeason === 'summer') {
-      this.currentSeason = 'fall'
-    }
-    if (this.currentSeason === 'fall') {
-      this.currentSeason = 'winter'
-    }
-    if (this.currentSeason === 'winter') {
-      this.currentSeason = 'spring'
-    }
-    if (this.currentSeason === 'spring') {
+    const season = this.currentSeason;
+    if (season === 'spring') {
       this.currentSeason = 'summer'
     }
+    if (season === 'summer') {
+      this.currentSeason = 'fall'
+    }
+    if (season === 'fall') {
+      this.currentSeason = 'winter'
+    }
+    if (season === 'winter') {
+      this.currentSeason = 'spring'
+    }
     return this.currentSeason;
+
   }
 }
 

@@ -7,7 +7,20 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
-  // ✨ implement
+  const objCopy = {};
+
+  for (const key in obj) {
+    const value = obj[key];
+
+    if(typeof value === 'string') {
+      const trimmedValue = value.trim();
+      objCopy[key] = trimmedValue;
+    } else {
+      objCopy[key] = value;
+    }
+
+  };
+  return objCopy;
 }
 
 /**
@@ -19,7 +32,15 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
-  // ✨ implement
+  for (const key in obj) {
+    const value = obj[key];
+
+    if(typeof value === "string") {
+      const trimmedValue = value.trim();
+      obj[key] = trimmedValue;
+    }
+  };
+  return obj.
 }
 
 /**
@@ -31,7 +52,15 @@ function trimPropertiesMutation(obj) {
  * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
  */
 function findLargestInteger(integers) {
-  // ✨ implement
+   let largestInteger = 0;
+
+   integers.forEach(integer => {
+     if (integer.integer > largestInteger) {
+      largestInteger = integer.integer;
+     }
+     
+   })
+   return largestInteger;
 }
 
 class Counter {
@@ -40,7 +69,7 @@ class Counter {
    * @param {number} initialNumber - the initial state of the count
    */
   constructor(initialNumber) {
-    // ✨ initialize whatever properties are needed
+    this.number = initialNumber;
   }
 
   /**
@@ -56,7 +85,11 @@ class Counter {
    * counter.countDown() // returns 0
    */
   countDown() {
-    // ✨ implement
+    const originalNumber = this.number;
+    if(this.number > 0){
+      this.number -= 1; //becuse we're counting down
+    }
+    return originalNumber;
   }
 }
 
@@ -65,7 +98,7 @@ class Seasons {
    * [Exercise 5A] Seasons creates a seasons object
    */
   constructor() {
-    // ✨ initialize whatever properties are needed
+    this.season = initialSeason;
   }
 
   /**
@@ -81,7 +114,15 @@ class Seasons {
    * seasons.next() // returns "summer"
    */
   next() {
-    // ✨ implement
+    const originalSeason = this.season;
+
+    const seasons = ["summer, fall, winter, spring"];
+    const originalIndex = seasons.indexOf(orignalSeason);
+    const nextIndex = (originalIndex + 1) % seasons.length; //Is there a simpler way to achieve this?
+  
+    const nextSeason = seasons[nextIndex];
+    this.season = nextSeason;
+    return originalSeason;
   }
 }
 
@@ -95,7 +136,7 @@ class Car {
   constructor(name, tankSize, mpg) {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
-    // ✨ initialize whatever other properties are needed
+    this.mpg = mpg
   }
 
   /**
@@ -112,7 +153,13 @@ class Car {
    * focus.drive(200) // returns 600 (ran out of gas after 100 miles)
    */
   drive(distance) {
-    // ✨ implement
+    const originalOdometer = this.odometer;
+    if (this.tank > 0){
+      this.tank -= distance /this.mpg;
+      this.odometer += distance;
+
+    }
+    return this.odometer;
   }
 
   /**
@@ -127,7 +174,8 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
-    // ✨ implement
+    const gallons = this.gallons;
+    if (this.odometer)
   }
 }
 
@@ -151,8 +199,16 @@ class Car {
  * })
  */
 function isEvenNumberAsync(number) {
-  // ✨ implement
+  
 }
+//ASYNC STRUCTURE
+// it("name", async () => {
+//   const distance = await odyssey.driveAsync(10)
+//   expect(distance).toBe(10)
+// })
+
+
+
 
 module.exports = {
   trimProperties,

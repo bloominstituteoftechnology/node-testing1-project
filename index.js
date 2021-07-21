@@ -143,12 +143,6 @@ class Car {
  * isEvenNumberAsync(3).then(result => {
  *    // result is false
  * })
- * isEvenNumberAsync('foo').catch(error => {
- *    // error.message is "number must be a number"
- * })
- * isEvenNumberAsync(NaN).catch(error => {
- *    // error.message is "number must be a number"
- * })
  */
 function isEvenNumberAsync(number) {
   // ✨ implement

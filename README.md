@@ -26,8 +26,8 @@ There are two possible ways to submit your project. Your instructor should have 
 ### Task 2: Minimum Viable Product
 
 - [ ] For Exercises 1-7 inside `index.js`:
+  - [ ] Write the tests in `index.test.js`.
   - [ ] Implement the function or the class in `index.js`.
-  - [ ] Write the corresponding tests in `index.test.js`.
 
 #### Notes
 
@@ -35,7 +35,6 @@ There are two possible ways to submit your project. Your instructor should have 
 - Run tests locally with Jest executing `npm test`.
 - You can add console.logs to `index.js` to manually test your code. (e.g. `console.log(car.drive(10));`).
 - The output of your log statements can be found in the terminal you run `npm run dev` in.
-- You must remove the `.todo` from the tests in order for them to execute.
 
 #### Hot Tips
 

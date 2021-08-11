@@ -140,6 +140,7 @@ class Car {
    */
   refuel(gallons) {
     // ✨ implement
+    this.gallons += gallons;
   }
 }
 
@@ -149,8 +150,6 @@ class Car {
  * @returns {promise} - resolves true if number even, false otherwise
  *
  * EXAMPLE
- * isEvenNumberAsync(2).then(result => {
- *    // result is true
  * })
  * isEvenNumberAsync(3).then(result => {
  *    // result is false
@@ -158,6 +157,7 @@ class Car {
  */
 function isEvenNumberAsync(number) {
   // ✨ implement
+  number = 2;
 }
 
 module.exports = {

@@ -149,12 +149,20 @@ describe("[Exercise 6] Car", () => {
 
 describe("[Exercise 7] isEvenNumberAsync", () => {
   test("[19] resolves true if passed an even number", async () => {
-    const evenNr = await Promise.resolve(true);
-    expect(evenNr).toBe(true);
+    const result = await utils.isEvenNumberAsync(2);
+    expect(result).toBe(true);
   });
 
   test("[20] resolves false if passed an odd number", async () => {
-    const oddNr = await Promise.resolve(false);
-    expect(oddNr).toBe(false);
+    const result = await utils.isEvenNumberAsync(3);
+    expect(result).toBe(false);
+  });
+
+  test("[21] rejects an error - NOT ON TEST", async () => {
+    try {
+      await utils.isEvenNumberAsync("isNaN");
+    } catch (error) {
+      expect(error.message).toMatch(/error/i);
+    }
   });
 });

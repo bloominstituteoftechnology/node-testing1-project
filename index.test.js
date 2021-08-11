@@ -1,8 +1,8 @@
 const utils = require("./index");
 
-// test("works great", () => {
-//   //empty test
-// });
+test("this test works great", () => {
+  //empty test
+});
 
 describe("[Exercise 1] trimProperties", () => {
   test("[1] returns an object with the properties trimmed", () => {
@@ -116,23 +116,35 @@ describe("[Exercise 6] Car", () => {
     expect(focus.odometer).toBe(0);
   });
   test("[15] driving the car returns the updated odometer", () => {
-    focus.drive(100);
-    focus.drive(200);
-    focus.drive(300);
+    expect(focus.drive(100)).toBe(100);
+    expect(focus.drive(100)).toBe(200);
+    expect(focus.drive(100)).toBe(300);
+    expect(focus.drive(200)).toBe(500);
+    // expect(focus.drive(200)).toBe(600);
+  });
 
+  test("[16] driving the car uses gas", () => {
+    focus.drive(600);
+    expect(focus.drive(1)).toBe(600);
+    expect(focus.drive(1)).toBe(600);
+    expect(focus.drive(1)).toBe(600);
+    expect(focus.tank).toBe(0);
+  });
+  test("[17] refueling allows to keep driving", () => {
+    focus.drive(600);
+    focus.refuel(10);
+    focus.drive(600);
+    expect(focus.odometer).toBe(900);
+    focus.refuel(20);
+    focus.drive(600);
+    expect(focus.odometer).toBe(1500);
+  });
+
+  test("[18] adding fuel to a full tank has no effect", () => {
+    focus.refuel(20000000);
+    focus.drive(100000);
     expect(focus.odometer).toBe(600);
   });
-  // test("[16] driving the car uses gas", () => {
-  //   const actualGallons = focus.drive(600);
-  //   // const expectedGallons = 10;
-  //   expect(actualGallons).toBe(10);
-  // });
-  // test("[17] refueling allows to keep driving", () => {
-  //   expect();
-  // });
-  // test("[18] adding fuel to a full tank has no effect", () => {
-  //   expect();
-  // });
 });
 
 describe("[Exercise 7] isEvenNumberAsync", () => {

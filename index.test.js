@@ -1,4 +1,3 @@
-/* eslint-disable */
 const utils = require("./index");
 
 // test("works great", () => {
@@ -36,9 +35,17 @@ describe("[Exercise 2] trimPropertiesMutation", () => {
 });
 
 describe("[Exercise 3] findLargestInteger", () => {
-  // test("[5] returns the largest number in an array of objects { integer: 2 }", () => {
-  // expect();
-  // });
+  test("[5] returns the largest number in an array of objects { integer: 2 }", () => {
+    const input = [{ integer: 1 }, { integer: 3 }, { integer: 2 }];
+    const input2 = [{ integer: 4 }, { integer: 3 }, { integer: 2 }];
+    const input3 = [{ integer: 1 }, { integer: 3 }, { integer: 4 }];
+    const actual = utils.findLargestInteger(input);
+    const actual2 = utils.findLargestInteger(input2);
+    const actual3 = utils.findLargestInteger(input3);
+    expect(actual).toBe(3);
+    expect(actual2).toBe(4);
+    expect(actual3).toBe(4);
+  });
 });
 
 describe("[Exercise 4] Counter", () => {
@@ -46,15 +53,20 @@ describe("[Exercise 4] Counter", () => {
   beforeEach(() => {
     counter = new utils.Counter(3); // each test must start with a fresh counter
   });
-  // test("[6] the FIRST CALL of counter.countDown returns the initial count", () => {
-  // expect();
-  // });
-  // test("[7] the SECOND CALL of counter.countDown returns the initial count minus one", () => {
-  // expect();
-  // });
-  // test("[8] the count eventually reaches zero but does not go below zero", () => {
-  // expect();
-  // });
+  test("[6] the FIRST CALL of counter.countDown returns the initial count", () => {
+    expect(counter.countDown()).toBe(3);
+  });
+  test("[7] the SECOND CALL of counter.countDown returns the initial count minus one", () => {
+    counter.countDown();
+    expect(counter.countDown()).toBe(2);
+  });
+  test("[8] the count eventually reaches zero but does not go below zero", () => {
+    counter.countDown();
+    counter.countDown();
+    counter.countDown();
+    counter.countDown();
+    expect(counter.countDown()).toBe(0);
+  });
 });
 
 describe("[Exercise 5] Seasons", () => {

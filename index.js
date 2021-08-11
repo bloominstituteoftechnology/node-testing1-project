@@ -12,7 +12,7 @@ function trimProperties(obj) {
   for (let prop in obj) {
     result[prop] = obj[prop].trim();
   }
-  // console.log(acc);
+  // console.log(result);
   return result;
 }
 
@@ -26,11 +26,10 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
-  // return Object.keys(obj).reduce((acc, curr) => {
-  //   acc[curr] = obj[curr].trim();
-  //   console.log(acc);
-  //   return acc;
-  // }, {});
+  for (let prop in obj) {
+    obj[prop] = obj[prop].trim();
+  }
+  return obj;
 }
 
 /**
@@ -140,7 +139,7 @@ class Car {
    */
   refuel(gallons) {
     // ✨ implement
-    this.gallons += gallons;
+    // this.gallons += gallons;
   }
 }
 

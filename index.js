@@ -1,4 +1,3 @@
-/* eslint-disable */
 /**
  * [Exercise 1] trimProperties copies an object trimming its properties
  * @param {object} obj - an object with properties that are strings
@@ -9,11 +8,12 @@
  */
 function trimProperties(obj) {
   // ✨ implement
-  return Object.keys(obj).reduce((acc, curr) => {
-    acc[curr] = obj[curr].trim();
-    // console.log(acc);
-    return acc;
-  }, {});
+  const result = {};
+  for (let prop in obj) {
+    result[prop] = obj[prop].trim();
+  }
+  // console.log(acc);
+  return result;
 }
 
 /**

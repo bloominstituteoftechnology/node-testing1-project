@@ -13,30 +13,40 @@ describe("[Exercise 1] trimProperties", () => {
     const actual = utils.trimProperties(input);
     expect(actual).toEqual(expected);
   });
-  // test('[2] returns a copy, leaving the original object intact', () => {})
+  // test("[2] returns a copy, leaving the original object intact", () => {
+  //   // expect();
+  // });
 });
 
-describe("[Exercise 2] trimPropertiesMutation", () => {
-  test("[3] returns an object with the properties trimmed", () => {
-    expect();
-  });
-  test("[4] the object returned is the exact same one we passed in", () => {
-    expect();
-  });
-});
+// describe("[Exercise 2] trimPropertiesMutation", () => {
+// test("[3] returns an object with the properties trimmed", () => {
+//   // expect();
+// });
+// test("[4] the object returned is the exact same one we passed in", () => {
+//   // expect();
+// });
+// });
 
 describe("[Exercise 3] findLargestInteger", () => {
-  // test('[5] returns the largest number in an array of objects { integer: 2 }', () => {})
+  // test("[5] returns the largest number in an array of objects { integer: 2 }", () => {
+  // expect();
+  // });
 });
 
 describe("[Exercise 4] Counter", () => {
   let counter;
   beforeEach(() => {
-    counter = new utils.Counter(3); // each test must start with a fresh couter
+    counter = new utils.Counter(3); // each test must start with a fresh counter
   });
-  // test('[6] the FIRST CALL of counter.countDown returns the initial count', () => {})
-  // test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {})
-  // test('[8] the count eventually reaches zero but does not go below zero', () => {})
+  // test("[6] the FIRST CALL of counter.countDown returns the initial count", () => {
+  // expect();
+  // });
+  // test("[7] the SECOND CALL of counter.countDown returns the initial count minus one", () => {
+  // expect();
+  // });
+  // test("[8] the count eventually reaches zero but does not go below zero", () => {
+  // expect();
+  // });
 });
 
 describe("[Exercise 5] Seasons", () => {
@@ -57,7 +67,13 @@ describe("[Exercise 6] Car", () => {
   beforeEach(() => {
     focus = new utils.Car("focus", 20, 30); // each test must start with a fresh car
   });
-  // test('[15] driving the car returns the updated odometer', () => {})
+  test("[15] driving the car returns the updated odometer", () => {
+    focus.drive(100);
+    focus.drive(200);
+    focus.drive(250);
+
+    expect(focus.odometer).toBe(550);
+  });
   // test('[16] driving the car uses gas', () => {})
   // test('[17] refueling allows to keep driving', () => {})
   // test('[18] adding fuel to a full tank has no effect', () => {})

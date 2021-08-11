@@ -9,7 +9,11 @@
  */
 function trimProperties(obj) {
   // ✨ implement
-  return { obj };
+  return Object.keys(obj).reduce((acc, curr) => {
+    acc[curr] = obj[curr].trim();
+    // console.log(acc);
+    return acc;
+  }, {});
 }
 
 /**
@@ -22,6 +26,11 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  // return Object.keys(obj).reduce((acc, curr) => {
+  //   acc[curr] = obj[curr].trim();
+  //   console.log(acc);
+  //   return acc;
+  // }, {});
 }
 
 /**
@@ -115,6 +124,7 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    this.odometer += distance;
   }
 
   /**

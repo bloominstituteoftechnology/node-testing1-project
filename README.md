@@ -39,7 +39,8 @@ Your instructor should have communicated which method to use for this project du
 #### Hot Tips
 
 - You will need to brush up on your JavaScript and use the Jest documentation to solve this challenge.
-- Do not alter your `package.json` file except to install extra libraries or add extra scripts.
+- Do not install Jest, as it's already installed.
+- Do not alter your `package.json` file except to install extra libraries or add extra scripts. Do not update existing dependencies.
 - In your solution, it is essential that you follow best practices and produce clean and professional results.
 - Schedule time to review, refine, and assess your work.
 - Perform basic professional polishing including spell-checking and grammar-checking on your work.

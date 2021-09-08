@@ -8,7 +8,16 @@
  */
 function trimProperties(obj) {
   // ✨ implement
-}
+  var trimmedObj = {};
+  for (var prop in obj) {
+    if (typeof obj[prop] === "string") {
+      trimmedObj[prop] = obj[prop].trim();
+    } else {
+      trimmedObj[prop] = obj[prop];
+    }
+  }
+  return trimmedObj;
+  }
 
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
@@ -18,8 +27,14 @@ function trimProperties(obj) {
  * EXAMPLE
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
-function trimPropertiesMutation(obj) {
+function trimPropertiesMutation(object) {
   // ✨ implement
+  for(var prop in object) {
+    if(typeof object[prop] === "string") {
+      object[prop] = object[prop].trim()
+    }
+  }
+  return object
 }
 
 /**

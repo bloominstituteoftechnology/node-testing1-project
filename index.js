@@ -8,7 +8,7 @@
  */
 function trimProperties(obj) { //now an argument is passed through our function
   // ✨ implement
-  let result = {}
+  const result = {}
   for (let prop in obj) {
     result[prop] = obj[prop].trim()
   }
@@ -26,6 +26,10 @@ function trimProperties(obj) { //now an argument is passed through our function
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  for (let prop in obj) {
+    obj[prop] = obj[prop].trim()
+  }
+  return obj
 }
 
 /**
@@ -38,6 +42,13 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+  let result = integers[0].integer //provisional variable, will overwrite result
+  for (let idx = 0; idx < integers.length; idx++) {
+    if (integers[idx].integer > result) {
+      result = integers[idx].integer
+    }
+  }
+  return result
 }
 
 class Counter {
@@ -47,6 +58,7 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.count = initialNumber
   }
 
   /**
@@ -63,6 +75,11 @@ class Counter {
    */
   countDown() {
     // ✨ implement
+  return this.count > 0 ? this.count -- : 0
+  //   if (this.count > 0) {
+  //     return this.count--
+  //   }
+  //   return this.count
   }
 }
 

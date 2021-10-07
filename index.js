@@ -202,19 +202,19 @@ class Car {
 //   return Promise.resolve(false)
 // }
 
-// async function isEvenNumberAsync(number) {
-//   if (number % 2 === 0) {
-//     return true
-//   }
-//   return false
-// }
-
 async function isEvenNumberAsync(number) {
-  if (typeof number !== 'number' || isNaN(number)) {
-    throw new Error('number must be a number')
+  if (number % 2 === 0) {
+    return true
   }
-  number % 2 === 0 || false
+  return false
 }
+
+// async function isEvenNumberAsync(number) {
+//   if (typeof number !== 'number' || isNaN(number)) {
+//     throw new Error('number must be a number')
+//   }
+//   number % 2 === 0 || false
+// }
 
 
 module.exports = {

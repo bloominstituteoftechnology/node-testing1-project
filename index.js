@@ -8,6 +8,13 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+
+  for (let key in obj) {
+    obj[key] = obj[key].trim();
+  }
+
+  return obj
+
 }
 
 /**
@@ -20,6 +27,12 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  for (let key in obj) {
+    obj[key] = obj[key].trim();
+  }
+
+  return obj
+
 }
 
 /**
@@ -32,6 +45,17 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+  const arr = integers.map(el =>
+    el.integer
+  )
+  let largest = arr[0];
+
+  for (let x = 0; x <= largest; x++) {
+    if (arr[x] > largest) {
+      largest = arr[x];
+    }
+  }
+  return largest
 }
 
 class Counter {
@@ -41,6 +65,7 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.count = initialNumber
   }
 
   /**
@@ -57,6 +82,11 @@ class Counter {
    */
   countDown() {
     // ✨ implement
+    return this.count > 0 ? this.count-- : 0;
+    //   if (initialNumber > 0) {
+    //     return initialNumber -= 1
+    //   }
+    // }
   }
 }
 
@@ -64,8 +94,10 @@ class Seasons {
   /**
    * [Exercise 5A] Seasons creates a seasons object
    */
-  constructor() {
+  constructor(summer, fall, winter, spring) {
     // ✨ initialize whatever properties are needed
+    this.seasons = ['winter', 'notspring', 'summer', 'fall']
+    this.currentSeason = 0
   }
 
   /**
@@ -82,6 +114,7 @@ class Seasons {
    */
   next() {
     // ✨ implement
+
   }
 }
 

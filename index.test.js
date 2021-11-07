@@ -82,6 +82,6 @@ describe('[Exercise 4] Counter', () => {
 // })
 
 describe('[Exercise 7] isEvenNumberAsync', () => {
-  // test('[19] resolves true if passed an even number', () => {})
+  test('[19] resolves true if passed an even number', () => { })
   // test('[20] resolves false if passed an odd number', () => {})
 })

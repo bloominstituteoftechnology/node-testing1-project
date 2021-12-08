@@ -9,8 +9,8 @@ Your assignment page on Canvas should contain instructions for submitting this p
 ### Task 2: Minimum Viable Product
 
 - [ ] For Exercises 1-7 inside `index.js`:
-  - [ ] Write the tests in `index.test.js`.
-  - [ ] Implement the function or the class in `index.js`.
+- [ ] Write the tests in `index.test.js`.
+- [ ] Implement the function or the class in `index.js`.
 
 #### Notes
 

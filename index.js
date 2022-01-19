@@ -127,6 +127,9 @@ class Car {
   constructor(name, tankSize, mpg) {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
+    this.mpg = mpg // car initiazes with mpg
+    this.name = name // car initiazes with name
+    this.tankSize = tankSize
     // ✨ initialize whatever other properties are needed
   }
 
@@ -145,7 +148,16 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
-  }
+    const milesCanDrive = this.tank * this.mpg;
+    if (milesCanDrive >= distance) {
+      this.odometer += distance;
+      this.tank -= (distance / this.mpg);
+    } else {
+      this.odometer += milesCanDrive;
+      this.tank = 0;
+    }
+    return this.odometer; 
+  } 
 
   /**
    * [Exercise 6C] Adds gallons to the tank
@@ -160,7 +172,15 @@ class Car {
    */
   refuel(gallons) {
     // ✨ implement
+    const gallonsCanFit = this.tankSize - this.tank;
+    if (gallonsCanFit >= gallons) {
+      this.tank += gallons;
+    } else {
+      this.tank = this.tankSize;
+    }
+    return this.drive(this.tank * this.mpg);
   }
+
 }
 
 /**
@@ -188,4 +208,4 @@ module.exports = {
   Counter,
   Seasons,
   Car,
-}
+};

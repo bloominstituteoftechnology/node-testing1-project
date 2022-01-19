@@ -4,13 +4,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "cross-env NODE_ENV=testing jest --verbose"
+    "test": "jest"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
     "cross-env": "^7.0.3",
     "eslint": "^8.4.1",
-    "jest": "^27.4.4",
+    "jest": "^27.4.7",
     "nodemon": "^2.0.15"
   },
   "repository": {

@@ -6,7 +6,9 @@
  * EXAMPLE
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
-function trimProperties(obj) {
+function trimProperties(obj){
+  Object.keys(obj).forEach(item => obj[item] = obj[item].trim());
+  return obj
   // ✨ implement
 }
 
@@ -19,6 +21,8 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
+  Object.keys(obj).forEach(key => obj[key] = obj[key].trim());//not sure what mutated implies
+  return obj
   // ✨ implement
 }
 
@@ -31,6 +35,11 @@ function trimPropertiesMutation(obj) {
  * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
  */
 function findLargestInteger(integers) {
+  var largestNum = integers.reduce(function(max, obj){
+    return obj.integer > max.integer?obj: max;
+  })
+  return largestNum.integer
+  
   // ✨ implement
 }
 
@@ -40,6 +49,7 @@ class Counter {
    * @param {number} initialNumber - the initial state of the count
    */
   constructor(initialNumber) {
+    this.initialNumber = initialNumber
     // ✨ initialize whatever properties are needed
   }
 
@@ -56,6 +66,9 @@ class Counter {
    * counter.countDown() // returns 0
    */
   countDown() {
+    if(this.initialNumber > 0){
+      this.initialNumber = this.initialNumber -1
+    }
     // ✨ implement
   }
 }

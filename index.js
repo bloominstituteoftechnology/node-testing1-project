@@ -8,7 +8,13 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  const result = {}
+  for (let key in obj) {
+    result[key] = obj[key].trim(); //not sure if call key or prop
+  }
+  return result;
 }
+
 
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object

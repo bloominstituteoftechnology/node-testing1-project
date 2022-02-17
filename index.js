@@ -190,12 +190,12 @@ class Car {
  * })
  */
 async function isEvenNumberAsync(number) {
-  // ✨ implement
-  if(number % 2  === 0){
-    return true
+  if(!number || typeof number !== "number"){
+    return false
+  } 
+  if(number % 2 === 0) {return true }
+    else{return false}
   }
-  return false
-}
 
 module.exports = {
   trimProperties,

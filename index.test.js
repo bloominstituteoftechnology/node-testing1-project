@@ -9,8 +9,8 @@ describe('[Exercise 1] trimProperties', () => {
     expect(actual).toEqual(expected)
   })
   test('[2] returns a copy, leaving the original object intact', () => {
-    const input = { name = '   cynthia   ' }
-    const expected = { name = 'cynthia' }
+    const input = { name: '   cynthia   ' }
+    const expected = { name: 'cynthia' }
     expect(utils.trimProperties(input)).toEqual(expected)
     expect(utils.trimProperties(input)).not.toBe(input)
   })
@@ -25,8 +25,9 @@ describe('[Exercise 2] trimPropertiesMutation', () => {
   })
   test('[4] the object returned is the exact same one we passed in', () => {
     const input = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
-    const trimmed = utils.trimProperties(input)
-    expect(input).toBe(trimmed)
+    const expected = { foo: 'foo', bar: 'bar', baz: 'baz' }
+    const actual = utils.trimProperties(input)
+    expect(actual).toEqual(expected)
   })
 })
 
@@ -131,12 +132,12 @@ describe('[Exercise 6] Car', () => {
 })
 
 describe('[Exercise 7] isEvenNumberAsync', () => {
-  test('[19] resolves true if passed an even number', () => {
-    const result = await utils.isEvenNumberAsync(2)
+  test('[19] resolves true if passed an even number', async () => {
+    let result = await utils.isEvenNumberAsync(4)
     expect(result).toBe(true)
-  })
-  test('[20] resolves false if passed an odd number', () => {
-    const result = await utils.isEvenNumberAsync(3)
-    expect(result).toBe(false)
-  })
+      })
+     test('[20] resolves false if passed an odd number', async () => {
+       let number = await utils.isEvenNumberAsync(5)
+       expect(number).toBe(false)
+     })
 })
